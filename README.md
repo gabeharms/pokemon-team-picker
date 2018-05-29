@@ -10,47 +10,34 @@ Welcome to "Battling Data with GraphQL & React" Dev Academy Course
 * `cd pokemon-team-picker && git fetch --all && git checkout DAY-01-START && yarn install`
 * `yarn start`
 
-### This is your space!
-I have left this README intentionally blank as I want you to use this as a scratch pad throughout the course.
+### Log
 
-Please take your current work at the end of the day, and push it up to your github repo!  During the classes first day
-I will show everyone how to save yourself with some git shortcuts, and best practices incase you end up down Alice's Rabbit Hole!
-
-After each day, I would like you to follow a template such as this:
 
 ```
-DAY-01 - Ryan Yogan
----
+DAY-01 - Gabe Harms
+-------------------
 What did I learn today?
-* What in the heck is GraphQL?
-* What the render prop pattern is, and how it helps control flow.
-* That REST was never a spec!
-* Yogan just cannot seem to get onboard with Pokemon names!
+
+What problems does GraphQL solve?
+* I don't know how my data is stored, but I know the format/structure I want it in
+* Many times, I have to hit many rest endpoints in order to get all the information I need for my UI
+* Nested relationships have to be built dynamically via the response of several rest endpoints
+* There are many attributes in my server response that I will not use and do not need
+* In order to get all the data I need, I have to N+1 over my API endpoints
+* As a client, I do not care how the server stores my data
+* As a client, when I need new attributes to be made available, I have to make a pull request to 
+    the API endpoint backend code base
+* As a client, when a change to an API endpoint is made, my code breaks
+* As a client, caching is hard
+* As an application developer, I want my backend services to be decoupled from the front end
+* As an application developer, I want to serve data from multiple services to the client as one request
+* As a developer, I want to be able to navigate through API documentation easily
 
 What am I going to add to the app?
-* I am going to add a small feature to show more information for each Pokemon
-* A nice to have would be to Authenticate with Github, hmmm did Ryan show us where to learn how to do this? Yeaup!
-* Bring everyone breakfast burritios FTW!
+
 
 What do I feel stuck on?
-* I am having trouble understanding why everything comes back as `data: { }` can I change this?
-* My Team is loading slow, I want to load it when the user hovers over the Navigation link! HOW?!?!
-```
 
 ```
-DAY-02 - Ryan Yogan
----
-What did I learn today?
-* Everything!
-* I now understand how to change the `data: {} ` props!
-
-What am I going to add to the app?
-* I am going to learn about Zeit's NOW and deploy the app to my own server :)
-
-What do I feel stuck on?
-* I can't decide on what color theme I want for my terminal
-```
 
 
-I will be looking through these at night, making sure everyone is getting the most out of their time, so please try and 
-take a few minute to really put thought into these README updates.
