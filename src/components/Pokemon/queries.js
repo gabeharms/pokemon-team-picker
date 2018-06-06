@@ -1,24 +1,41 @@
 import gql from 'graphql-tag';
 
 const GET_POKEMON_QUERY = gql`
-  query pokemons {
-    pokemons(first: 20) {
+  query {
+    pokemons: getAllPokemons {
       id
       name
-      image
-      classification
+      img
     }
   }
 `;
 
 const GET_SINGLE_POKEMON_QUERY = gql`
-  query pokemon($id: String!) {
-    pokemon(id: $id) {
+  query pokemonGet($id: ID!) {
+    pokemon: Pokemon(id: $id) {
       id
       name
-      image
+      img
       classification
-      weaknesses
+      damages {
+        normal
+        fire
+        water
+        electric
+        grass
+        ice
+        fight
+        poison
+        ground
+        flying
+        psychic
+        bug
+        rock
+        ghost
+        dragon
+        dark
+        steel
+      }
     }
   }
 `;

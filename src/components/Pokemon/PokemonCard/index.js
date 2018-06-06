@@ -3,7 +3,6 @@ import {
   Box,
   Card,
   Flex,
-  OverlayTrigger,
   Modal,
   Button,
   List,
@@ -14,8 +13,6 @@ import ErrorMessage from '../../Error';
 import Loading from '../../Loading';
 
 import { GET_SINGLE_POKEMON_QUERY } from '../queries';
-
-import PokemonPopup from '../PokemonPopup';
 
 const ModalBody = ({ id, image, name }) => (
   <Fragment>
@@ -58,10 +55,12 @@ const ModalBody = ({ id, image, name }) => (
             <List>
               <List.Item>{pokemon.classification}</List.Item>
             </List>
-            <Header.H3>Weaknesses</Header.H3>
+            <Header.H3>Damagers</Header.H3>
             <List>
-              {pokemon.weaknesses.map(weakness => (
-                <List.Item key={weakness}>{weakness}</List.Item>
+              {Object.keys(pokemon.damages).map(key => (
+                <List.Item key={key}>
+                  {key}: {pokemon.damages[key]}
+                </List.Item>
               ))}
             </List>
           </Box>
@@ -71,51 +70,46 @@ const ModalBody = ({ id, image, name }) => (
   </Fragment>
 );
 
-const PokemonCard = ({ id, name, image, classification }) => (
+const PokemonCard = ({ id, name, img }) => (
   <Box margin="md">
     <Card variant="hoverable" style={{ width: '200px' }}>
-      <OverlayTrigger
-        trigger="hover"
-        overlay={<PokemonPopup classification={classification} />}
-      >
-        <Box padding="md">
-          <Flex direction="column">
-            <Modal.State>
-              {({ isShowing, show, hide }) => (
-                <div>
-                  <img
-                    alt={name}
-                    src={image}
-                    style={{ height: 75, width: 75, marginBottom: 10 }}
-                    onClick={show}
-                  />
-                  <h4 className="capitalize">{name}</h4>
-                  <Modal open={isShowing} onClickOverlay={hide} placement="top">
-                    <Fragment>
-                      <Modal.Header onClose={hide}>{name}</Modal.Header>
-                      <Modal.Body>
-                        {isShowing && (
-                          <ModalBody id={id} name={name} image={image} />
-                        )}
-                      </Modal.Body>
-                      <Modal.Footer>
-                        <Modal.FooterButtons>
-                          <Button variant="tertiary" onClick={hide}>
-                            Cancel
-                          </Button>
-                          <Button variant="primary" onClick={hide}>
-                            Add To Team
-                          </Button>
-                        </Modal.FooterButtons>
-                      </Modal.Footer>
-                    </Fragment>
-                  </Modal>
-                </div>
-              )}
-            </Modal.State>
-          </Flex>
-        </Box>
-      </OverlayTrigger>
+      <Box padding="md">
+        <Flex direction="column">
+          <Modal.State>
+            {({ isShowing, show, hide }) => (
+              <div>
+                <img
+                  alt={name}
+                  src={img}
+                  style={{ height: 75, width: 75, marginBottom: 10 }}
+                  onClick={show}
+                />
+                <h4 className="capitalize">{name}</h4>
+                <Modal open={isShowing} onClickOverlay={hide} placement="top">
+                  <Fragment>
+                    <Modal.Header onClose={hide}>{name}</Modal.Header>
+                    <Modal.Body>
+                      {isShowing && (
+                        <ModalBody id={id} name={name} image={img} />
+                      )}
+                    </Modal.Body>
+                    <Modal.Footer>
+                      <Modal.FooterButtons>
+                        <Button variant="tertiary" onClick={hide}>
+                          Cancel
+                        </Button>
+                        <Button variant="primary" onClick={hide}>
+                          Add To Team
+                        </Button>
+                      </Modal.FooterButtons>
+                    </Modal.Footer>
+                  </Fragment>
+                </Modal>
+              </div>
+            )}
+          </Modal.State>
+        </Flex>
+      </Box>
     </Card>
   </Box>
 );

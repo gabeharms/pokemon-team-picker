@@ -1,1 +1,1 @@
-export const TEMP_URI = 'https://graphql-pokemon.now.sh/graphql';
+export const TEMP_URI = 'https://pokemon-server.ryanyogan.com/graphql';
