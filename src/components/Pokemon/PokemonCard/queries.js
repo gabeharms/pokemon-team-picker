@@ -1,11 +1,12 @@
 import gql from 'graphql-tag';
 
 const GET_POKEMON_QUERY = gql`
-  {
-    pokemons: allPokemons(limit: 30) {
+  query($id: ID!) {
+    pokemon(id: $id) {
       id
       name
-      img
+      type
+      classification
     }
   }
 `;

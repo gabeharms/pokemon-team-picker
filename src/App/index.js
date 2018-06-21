@@ -7,6 +7,7 @@ import Footer from './Footer';
 import PokemonList from '../components/Pokemon';
 import Team from '../components/Team';
 import Arena from '../components/Arena';
+import Login from '../App/Login';
 
 import * as routes from '../constants/routes';
 
@@ -40,6 +41,16 @@ const Routes = () => (
       component={() => (
         <div className="App-content_small-header">
           <Arena />
+        </div>
+      )}
+    />
+
+    <Route
+      exact
+      path={routes.LOGIN}
+      component={() => (
+        <div className="App-content_small-header">
+          <Login />
         </div>
       )}
     />

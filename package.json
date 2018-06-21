@@ -22,6 +22,7 @@
     "graphql-tag": "^2.9.2",
     "react": "^16.4.0",
     "react-apollo": "^2.1.4",
+    "react-bootstrap": "^0.32.1",
     "react-dom": "^16.4.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.0",
@@ -36,9 +37,12 @@
   },
   "devDependencies": {
     "babel-eslint": "^8.2.3",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.19.1",
     "eslint-config-equimper": "^2.2.2",
     "eslint-config-prettier": "^2.9.0",
-    "prettier": "^1.13.0"
+    "prettier": "^1.13.0",
+    "react-apollo-async-testing": "^0.0.4"
   }
 }
